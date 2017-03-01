@@ -17,7 +17,7 @@ var selfUrlHref;
 var dataString = JSON.stringify({
     "amount": amountInCents,
     "reference" : paymentReference,
-    "description": "New passport application",
+    "description": "Pay Integration Demo",
     "return_url": returnUrl,
 });
 
