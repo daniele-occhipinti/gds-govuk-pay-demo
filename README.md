@@ -14,8 +14,8 @@ The steps are:
   * our private token
   * the amount we would like the user to pay
   * the URL (on the local machine) to redirect the user to after the they have successfully entered the payment information
-1. trigger the opening of a Chrome tab that will load the GOV.UK pages where the user enters their payment details
-1. at the end of the process GOV.UK will redirect the user to the webpage we set in step 1 (which is hosted on the Node.js server running on 8181)
+2. trigger the opening of a Chrome tab that will load the GOV.UK pages where the user enters their payment details
+3. at the end of the process GOV.UK will redirect the user to the webpage we set in step 1 (which is hosted on the Node.js server running on 8181)
 where we check the status of the transaction.
 
 ## Project setup
@@ -26,6 +26,9 @@ where we check the status of the transaction.
 `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt`
 * export PAY_API_TOKEN=[token_here]
 
+## Run the app
+`node pay_test.js 12000`
+The argument is the amount (in cents) you would like to charge the user with.
 
 
 ## TODO
