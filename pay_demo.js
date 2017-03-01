@@ -1,6 +1,9 @@
-var https = require('https');
-var childProc = require('child_process');
-var fs = require('fs');
+var https = require('https'),
+    express = require('express')
+    childProc = require('child_process'),
+    fs = require('fs');
+
+var serverPort = 8181;
 
 var paymentReference = "DAN-OCC-" + Math.floor(Math.random() * 10000);
 var amountInCents = parseInt(process.argv[2], 10); // amount is passed on the command line
@@ -10,7 +13,7 @@ var token = process.env.PAY_API_TOKEN;
 var host = "publicapi.payments.service.gov.uk";
 var paymentsEndpointPath = "/v1/payments";
 
-var returnUrl = "https://0.0.0.0:8181/?ref=" + paymentReference;
+var returnUrl = `https://0.0.0.0:${serverPort}/?ref=` + paymentReference;
 
 var selfUrlHref;
 
@@ -51,8 +54,7 @@ req.end();
 
 
 
-var express = require('express');
-var serverPort = 8181;
+
 
 var options = {
     key: fs.readFileSync('./server.key'),
