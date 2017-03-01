@@ -2,7 +2,7 @@
 
 The goal of this code is to showcase how quick and easy it can be to integrate with the GOV.UK Pay service. <br />
 The main focus of this exercise has been conciseness and clarity of intent - thus, thorough errors and edge conditions handling
-has not been addressed.
+has not been addressed. The code has not pair-reviewed either - this was just my personal experiment.
 
 With one single Node.js file (around 100 lines) we are able to:
 * start the card payment flow with a customisable amount to pay for the service
@@ -31,9 +31,10 @@ where we check the status of the transaction.
 `node pay_test.js 12000` <br />
 The argument is the amount (in cents) you would like to charge the user with.
 
+## License
+This code is released under the MIT license.
 
 ## TODO
-* pass the amount to charge on the command line (rather than hardcoding it)
 * general code refactoring
-* the server port (8181) is duplicated
+* add license
 * disclaimer this is just my test, no correctness, no reviewed
