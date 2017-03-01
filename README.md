@@ -10,6 +10,7 @@ With one single Node.js file (around 100 lines) we are able to:
 * check the status of the transaction
 
 The steps are:
+
 1. contact the Pay API passing these details (done through command line):
   * our private token
   * the amount we would like the user to pay
@@ -27,7 +28,7 @@ where we check the status of the transaction.
 * export PAY_API_TOKEN=[token_here]
 
 ## Run the app
-`node pay_test.js 12000`
+`node pay_test.js 12000` <br />
 The argument is the amount (in cents) you would like to charge the user with.
 
 
