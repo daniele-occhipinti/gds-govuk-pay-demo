@@ -9,7 +9,7 @@ With one single Node.js file (around 100 lines) we are able to:
 * have the user pay for that service (on the GOV.UK website)
 * check the status of the transaction
 
-The steps are:
+The steps the code implements are as follows:
 
 1. contact the Pay API passing these details (done through command line):
   * our private token
@@ -25,7 +25,7 @@ where we check the status of the transaction.
 `npm install express`
 * create a test SSL certificate as <br />
 `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt`
-* export PAY_API_TOKEN=[token_here]
+* `export PAY_API_TOKEN=[token_here]`
 
 ## Run the app
 `node pay_test.js 12000` <br />
