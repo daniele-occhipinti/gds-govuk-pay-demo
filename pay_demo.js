@@ -5,15 +5,15 @@ var https = require('https'),
 
 var serverPort = 8181;
 
-var paymentReference = "DAN-OCC-" + Math.floor(Math.random() * 10000);
-var amountInCents = parseInt(process.argv[2], 10); // amount is passed on the command line
-
-var token = process.env.PAY_API_TOKEN;
-
 var host = "publicapi.payments.service.gov.uk";
 var paymentsEndpointPath = "/v1/payments";
 
 var returnUrl = `https://0.0.0.0:${serverPort}/?ref=` + paymentReference;
+
+var paymentReference = "DAN-OCC-" + Math.floor(Math.random() * 10000);
+
+var token = process.env.PAY_API_TOKEN;
+var amountInCents = parseInt(process.argv[2], 10); // amount is passed from the command line
 
 var selfUrlHref;
 
