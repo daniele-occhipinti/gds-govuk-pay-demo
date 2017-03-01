@@ -2,8 +2,8 @@ var https = require('https');
 var childProc = require('child_process');
 var fs = require('fs');
 
-var paymentReference = "DAN-OCC-12345";
-var amountInCents = 15000;
+var paymentReference = "DAN-OCC-" + Math.floor(Math.random() * 10000);
+var amountInCents = parseInt(process.argv[2], 10); // amount is passed on the command line
 
 var token = process.env.PAY_API_TOKEN;
 
