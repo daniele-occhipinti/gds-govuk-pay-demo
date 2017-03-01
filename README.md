@@ -36,5 +36,3 @@ This code is released under the MIT license.
 
 ## TODO
 * general code refactoring
-* add license
-* disclaimer this is just my test, no correctness, no reviewed
