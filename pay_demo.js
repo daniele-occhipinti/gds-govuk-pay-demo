@@ -8,7 +8,7 @@ const serverPort = 8181;
 const host = "publicapi.payments.service.gov.uk";
 const paymentsEndpointPath = "/v1/payments";
 
-const token = process.env.PAY_API_TOKEN;
+const token = process.env.PAY_API_TOKEN; // set up on command line with: export PAY_API_TOKEN=[token_here]
 
 const returnUrl = `https://0.0.0.0:${serverPort}/?ref=` + paymentReference;
 
