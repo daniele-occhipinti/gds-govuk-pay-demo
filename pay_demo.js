@@ -10,7 +10,7 @@ const apiHost = "publicapi.payments.service.gov.uk",
       paymentReference = "DAN-OCC-" + Math.floor(Math.random() * 10000),
       returnUrl = `https://0.0.0.0:${serverPort}/?ref=` + paymentReference,
       paymentDescription = "Pay Integration Demo",
-      amountInCents = parseInt(process.argv[2], 10); // amount is passed from the command line;
+      amountInCents = parseInt(process.argv[2].replace("amount_cents=", ""), 10); // amount is passed from the command line;
 
 var selfUrlHref;
 

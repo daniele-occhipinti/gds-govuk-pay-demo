@@ -31,7 +31,7 @@ You will need to be on MacOS with Google Chrome installed, as I am using a non-p
 * `export PAY_API_TOKEN=[token_here]`
 
 ## Run the app
-`node pay_test.js 12000` <br />
+`node pay_test.js amount_cents=12000` <br />
 The argument is the amount (in cents) you would like to charge the user with.
 
 ## License
