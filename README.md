@@ -34,6 +34,9 @@ You will need to be on MacOS with Google Chrome installed, as I am using a non-p
 `node pay_test.js amount_cents=12000` <br />
 The argument is the amount (in cents) you would like to charge the user with.
 
+## Demo
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/PHlJ11Fpq7o/0.jpg)](http://www.youtube.com/watch?v=PHlJ11Fpq7o "Pay integration demo")
+
 ## License
 This code is released under the MIT license.
 
