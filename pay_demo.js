@@ -2,21 +2,15 @@ const https = require('https'),
       express = require('express')
       childProc = require('child_process'),
       fs = require('fs');
-
-const serverPort = 8181;
-
-const apiHost = "publicapi.payments.service.gov.uk";
-const apiPaymentsEndpointPath = "/v1/payments";
-
-const token = process.env.PAY_API_TOKEN; // set up on command line with: export PAY_API_TOKEN=[token_here]
-
-const returnUrl = `https://0.0.0.0:${serverPort}/?ref=` + paymentReference;
-
-const paymentDescription = "Pay Integration Demo";
-
-const amountInCents = parseInt(process.argv[2], 10); // amount is passed from the command line
-
-var paymentReference = "DAN-OCC-" + Math.floor(Math.random() * 10000);
+      
+const apiHost = "publicapi.payments.service.gov.uk",
+      apiPaymentsEndpointPath = "/v1/payments",
+      serverPort = 8181,
+      token = process.env.PAY_API_TOKEN, // set up on command line with: export PAY_API_TOKEN=[token_here]
+      paymentReference = "DAN-OCC-" + Math.floor(Math.random() * 10000),
+      returnUrl = `https://0.0.0.0:${serverPort}/?ref=` + paymentReference,
+      paymentDescription = "Pay Integration Demo",
+      amountInCents = parseInt(process.argv[2], 10); // amount is passed from the command line;
 
 var selfUrlHref;
 
