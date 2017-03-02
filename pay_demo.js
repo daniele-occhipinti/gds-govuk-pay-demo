@@ -14,7 +14,7 @@ const apiHost = "publicapi.payments.service.gov.uk",
 
 var selfUrlHref;
 
-// Initialising payment and launch the web payment form
+// Initialising payment and launching the web payment form
 
 var dataString = JSON.stringify({
     "amount": amountInCents,
@@ -66,7 +66,7 @@ var server = https.createServer(options, app).listen(serverPort, function(){
 
 app.get('/', function (req, res) {
 
-    var options2 = {
+    var options = {
       host: apiHost,
       port: 443,
       path: selfUrlHref,
@@ -77,7 +77,7 @@ app.get('/', function (req, res) {
       }
     };
 
-    var req2 = https.request(options2, function(res2) {
+    var req2 = https.request(options, function(res2) {
 
       res2.setEncoding('utf8');
 
