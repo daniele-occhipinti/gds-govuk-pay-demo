@@ -5,7 +5,7 @@ The main focus of this exercise has been conciseness and clarity of intent - thu
 has not been addressed. The code has not pair-reviewed either - this was just my personal experiment (and I am no Node.js expert).
 
 With one single Node.js file (less than 100 lines) I am able to:
-* start the card payment flow with a customisable amount to pay for the service
+* start the card payment flow with a customisable amount to pay for the service (launched from the command line to keep things as streamlined as possible)
 * have the user pay for that service (on the GOV.UK website)
 * check the status of the transaction
 
