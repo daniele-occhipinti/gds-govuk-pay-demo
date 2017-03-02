@@ -51,8 +51,7 @@ var req = https.request(options, function(res) {
 req.write(dataString)
 req.end();
 
-
-
+// Setting up the local server for the returning URL and checking the status of the transaction
 
 var options = {
     key: fs.readFileSync('./server.key'),
@@ -88,21 +87,10 @@ app.get('/', function (req, res) {
 
         var status = jsonResponseBody.state.status;
 
-        var message;
-
-        if (status == "success") {
-            message = "Successful payment";
-        } else {
-            message = "Some error occurred";
-        }
-
         res.writeHead(200);
-        res.end(message);
-
+        res.end(status == "success" ? "Successful payment" : "Some error occurred");
       });
-
     });
 
     req2.end();
-
 });

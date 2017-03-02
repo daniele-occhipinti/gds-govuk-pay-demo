@@ -2,9 +2,9 @@
 
 The goal of this code is to showcase how quick and easy it can be to integrate with the GOV.UK Pay service. <br />
 The main focus of this exercise has been conciseness and clarity of intent - thus, thorough errors and edge conditions handling
-has not been addressed. The code has not pair-reviewed either - this was just my personal experiment.
+has not been addressed. The code has not pair-reviewed either - this was just my personal experiment (and I am no Node.js expert).
 
-With one single Node.js file (around 100 lines) I am able to:
+With one single Node.js file (less than 100 lines) I am able to:
 * start the card payment flow with a customisable amount to pay for the service
 * have the user pay for that service (on the GOV.UK website)
 * check the status of the transaction
