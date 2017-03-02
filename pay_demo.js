@@ -14,50 +14,42 @@ const apiHost = "publicapi.payments.service.gov.uk",
 
 var selfUrlHref;
 
-initialisePaymentAndLoadPaymentWebForm(apiHost, apiPaymentsEndpointPath, token, returnUrl, amountInCents, paymentReference, paymentDescription);
+// Initialising payment and launch the web payment form
 
-function initialisePaymentAndLoadPaymentWebForm(apiHost, apiPaymentsEndpointPath, token, returnUrl, amountInCents, paymentReference, paymentDescription)
-{
-    var dataString = JSON.stringify({
-        "amount": amountInCents,
-        "reference" : paymentReference,
-        "description": paymentDescription,
-        "return_url": returnUrl,
-    });
+var dataString = JSON.stringify({
+    "amount": amountInCents,
+    "reference" : paymentReference,
+    "description": paymentDescription,
+    "return_url": returnUrl,
+});
 
-    var options = {
-      host: apiHost,
-      port: 443,
-      path: apiPaymentsEndpointPath,
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + token,
-        'Content-Type': 'application/json',
-        'Content-Length': dataString.length
-      }
-    };
+var options = {
+  host: apiHost,
+  port: 443,
+  path: apiPaymentsEndpointPath,
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer ' + token,
+    'Content-Type': 'application/json',
+    'Content-Length': dataString.length
+  }
+};
 
-    var req = https.request(options, function(res) {
-      res.setEncoding('utf8');
-      res.on('data', function (responseBody) {
+var req = https.request(options, function(res) {
+  res.setEncoding('utf8');
+  res.on('data', function (responseBody) {
 
-        var jsonResponseBody = JSON.parse(responseBody);
-        var nextUrlHref = jsonResponseBody._links.next_url.href;
-        selfUrlHref = jsonResponseBody._links.self.href;
+    var jsonResponseBody = JSON.parse(responseBody);
+    var nextUrlHref = jsonResponseBody._links.next_url.href;
+    selfUrlHref = jsonResponseBody._links.self.href;
 
-        childProc.exec('open -a "Google Chrome" ' + nextUrlHref, function () {});
+    childProc.exec('open -a "Google Chrome" ' + nextUrlHref, function () {});
 
-      });
-    })
+  });
+})
 
-    req.write(dataString)
-    req.end();
-}
-
-
-
-
-
+req.write(dataString)
+req.end();
 
 
 
