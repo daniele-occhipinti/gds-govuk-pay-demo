@@ -6,7 +6,7 @@ const https = require('https'),
 const apiHost = "publicapi.payments.service.gov.uk",
       apiPaymentsEndpointPath = "/v1/payments",
       serverPort = 8181,
-      token = process.env.PAY_API_TOKEN, // set up on command line with: export PAY_API_TOKEN=[token_here]
+      apiToken = process.env.PAY_API_TOKEN, // set up on command line with: export PAY_API_TOKEN=[token_here]
       paymentReference = "DAN-OCC-" + Math.floor(Math.random() * 10000),
       returnUrl = `https://0.0.0.0:${serverPort}/?ref=` + paymentReference,
       paymentDescription = "Pay Integration Demo",
@@ -29,7 +29,7 @@ var options = {
   path: apiPaymentsEndpointPath,
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer ' + token,
+    'Authorization': 'Bearer ' + apiToken,
     'Content-Type': 'application/json',
     'Content-Length': dataString.length
   }
@@ -72,7 +72,7 @@ app.get('/', function (req, res) {
       path: selfUrlHref,
       method: 'GET',
       headers: {
-        'Authorization': 'Bearer ' + token,
+        'Authorization': 'Bearer ' + apiToken,
         'Content-Type': 'application/json'
       }
     };
