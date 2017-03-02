@@ -5,12 +5,14 @@ const https = require('https'),
 
 const serverPort = 8181;
 
-const host = "publicapi.payments.service.gov.uk";
-const paymentsEndpointPath = "/v1/payments";
+const apiHost = "publicapi.payments.service.gov.uk";
+const apiPaymentsEndpointPath = "/v1/payments";
 
 const token = process.env.PAY_API_TOKEN; // set up on command line with: export PAY_API_TOKEN=[token_here]
 
 const returnUrl = `https://0.0.0.0:${serverPort}/?ref=` + paymentReference;
+
+const paymentDescription = "Pay Integration Demo";
 
 const amountInCents = parseInt(process.argv[2], 10); // amount is passed from the command line
 
@@ -21,14 +23,14 @@ var selfUrlHref;
 var dataString = JSON.stringify({
     "amount": amountInCents,
     "reference" : paymentReference,
-    "description": "Pay Integration Demo",
+    "description": paymentDescription,
     "return_url": returnUrl,
 });
 
 var options = {
-  host: host,
+  host: apiHost,
   port: 443,
-  path: paymentsEndpointPath,
+  path: apiPaymentsEndpointPath,
   method: 'POST',
   headers: {
     'Authorization': 'Bearer ' + token,
@@ -71,7 +73,7 @@ var server = https.createServer(options, app).listen(serverPort, function(){
 app.get('/', function (req, res) {
 
     var options2 = {
-      host: host,
+      host: apiHost,
       port: 443,
       path: selfUrlHref,
       method: 'GET',
